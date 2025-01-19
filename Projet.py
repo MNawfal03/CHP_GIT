@@ -52,10 +52,6 @@ elif choix == "Méthode Monte Carlo":
         "La méthode Monte Carlo est une approche stochastique permettant de résoudre des problèmes complexes, notamment les équations intégrales, en simulant des processus aléatoires."
     )
     
-    # Centrer l'image avec des colonnes
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.image("https://via.placeholder.com/800x400", caption="Illustration de la méthode Monte Carlo pour estimer π", use_container_width=True)
     
     # Exemple interactif pour estimer π
     st.subheader("Estimation de π")

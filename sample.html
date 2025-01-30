@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sampling Method</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        .visualization-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .controls {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .image-display {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Solving the Boltzmann Equation</h1>
+</header>
+<nav>
+    <a href="accueil.html">Home</a>
+    <a href="contexte.html">Equation Context</a>
+    <a href="methode.html">Monte Carlo Method</a>
+    <a href="etudes.html">Case Studies</a>
+    <a href="sample.html">Sampling</a>
+    <a href="parallel.html">Parallel Results</a>
+    <a href="conclusion.html">Conclusion</a>
+    <a href="bib.html">Bibliography</a>
+</nav>
+<section>
+    <h2>Sampling Method</h2>
+    
+    <h3>Random Sampling on Unit Sphere</h3>
+    <p>
+        For our Monte Carlo simulation, we need to generate random directions uniformly distributed on the unit sphere. 
+        The process follows these steps:
+    </p>
+    <ol>
+        <li>Generate three independent standard normal random variables (X, Y, Z)</li>
+        <li>Normalize the resulting vector to obtain a point on the unit sphere</li>
+    </ol>
+
+    <p>Mathematically, for each sample:</p>
+    <div class="equation">
+        $$
+        \begin{align*}
+        X, Y, Z &\sim \mathcal{N}(0,1) \\
+        r &= \sqrt{X^2 + Y^2 + Z^2} \\
+        (\hat{x}, \hat{y}, \hat{z}) &= (\frac{X}{r}, \frac{Y}{r}, \frac{Z}{r})
+        \end{align*}
+        $$
+    </div>
+
+    <p>
+        This method produces uniform sampling on the unit sphere because the standard normal distribution 
+        is spherically symmetric. The normalization step ensures all points lie exactly on the sphere's surface.
+    </p>
+
+    <h3>Visualizations</h3>
+    <div class="visualization-container">
+        <div class="controls">
+            <button onclick="toggleView()">Toggle View (2D/3D)</button>
+        </div>
+        <div class="image-display">
+            <img id="sample-view" src="2D_samples.png" alt="Sampling visualization" style="max-width:100%; height:auto;">
+        </div>
+    </div>
+
+    <h3>Properties of the Method</h3>
+    <ul>
+        <li>Ensures uniform distribution on the sphere surface</li>
+        <li>Computationally efficient</li>
+        <li>Based on well-known normal distribution generators</li>
+        <li>Naturally extends to higher dimensions if needed</li>
+    </ul>
+</section>
+
+<script>
+let is3DView = false;
+function toggleView() {
+    is3DView = !is3DView;
+    const imgElement = document.getElementById('sample-view');
+    imgElement.src = is3DView ? '3d_samples.png' : '2D_samples.png';
+}
+</script>
+
+<footer class="footer">
+    <p>Academic Project - January 2025</p>
+</footer>
+</body>
+</html>

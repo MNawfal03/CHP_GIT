@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- [Head and style sections remain the same...] -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Animation specific styles -->
     <style>
         .visualization-container {
             width: 100%;
@@ -27,22 +27,22 @@
     </style>
 </head>
 <body>
-<!-- [Header and navigation remain the same...] -->
 <header>
     <h1>Solving the Boltzmann Equation</h1>
 </header>
 <nav>
-    <a href="accueil.html">Accueil</a>
-    <a href="contexte.html">Contexte de l'équation</a>
-    <a href="methode.html">Méthode Monte Carlo</a>
-    <a href="etudes.html">Études de cas</a>
+    <a href="index.html">Home</a>
+    <a href="contexte.html">Equation Context</a>
+    <a href="methode.html">Monte Carlo Method</a>
+    <a href="etudes.html">Case Studies</a>
+    <a href="sample.html">Sampling</a>
+    <a href="parallel.html">Parallel Results</a>
     <a href="conclusion.html">Conclusion</a>
-    <a href="bib.html">Bibliographie</a>
+    <a href="bib.html">Bibliography</a>
 </nav>
 <section>
     <h2>Case Studies</h2>
     
-    <!-- [Advection and Absorption sections remain the same...] -->
     <h3>Advection</h3>
     <p>This visualization shows the temporal evolution of the Boltzmann equation solution in the case of advection.</p>
     <div class="visualization-container">
@@ -57,7 +57,7 @@
             <button onclick="nextFrame('advection')">Next</button>
         </div>
         <div class="image-display">
-            <img id="currentImage-advection" src="images_advection/Sol_Mc0.png" style="max-width:100%; height:auto;">
+            <img id="currentImage-advection" src="images_advection/Sol_Mc0.png" alt="Advection visualization" style="max-width:100%; height:auto;">
         </div>
         <div class="controls">
             <span id="frameCounter-advection">Frame: 0/20</span>
@@ -78,7 +78,7 @@
             <button onclick="nextFrame('absorption')">Next</button>
         </div>
         <div class="image-display">
-            <img id="currentImage-absorption" src="images_absorption/Sol_Mc0.png" style="max-width:100%; height:auto;">
+            <img id="currentImage-absorption" src="images_absorption/Sol_Mc0.png" alt="Absorption visualization" style="max-width:100%; height:auto;">
         </div>
         <div class="controls">
             <span id="frameCounter-absorption">Frame: 0/20</span>
@@ -99,7 +99,7 @@
             <button onclick="nextFrame('diffusion')">Next</button>
         </div>
         <div class="image-display">
-            <img id="currentImage-diffusion" src="images_diffusion/Sol_Mc0.png" style="max-width:100%; height:auto;">
+            <img id="currentImage-diffusion" src="images_diffusion/Sol_Mc0.png" alt="Diffusion visualization" style="max-width:100%; height:auto;">
         </div>
         <div class="controls">
             <span id="frameCounter-diffusion">Frame: 0/6</span>
@@ -108,7 +108,6 @@
 </section>
 
 <script>
-    // Object to store the state for each visualization
     const visualizations = {
         advection: {
             currentIndex: 0,
@@ -126,7 +125,7 @@
             currentIndex: 0,
             animationInterval: null,
             folder: 'images_diffusion',
-            maxIndex: 6  // Changed to 5 (for 6 frames total, 0-5)
+            maxIndex: 6  // Changed to 6 frames total, 0-5
         }
     };
 
